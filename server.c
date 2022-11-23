@@ -6,8 +6,14 @@
 /*   By: mvalient <mvalient@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 22:48:42 by mvalient          #+#    #+#             */
-/*   Updated: 2022/11/23 22:48:42 by mvalient         ###   ########.fr       */
+/*   Updated: 2022/11/23 22:59:08 by mvalient         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
+
+int	main(void)
+{
+	ft_printf("PID: %d", getpid())
+	return (0);
+}
