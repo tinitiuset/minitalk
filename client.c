@@ -6,18 +6,17 @@
 /*   By: mvalient <mvalient@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 22:52:56 by mvalient          #+#    #+#             */
-/*   Updated: 2022/11/24 10:27:39 by mvalient         ###   ########.fr       */
+/*   Updated: 2022/11/24 11:20:48 by mvalient         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <signal.h>
 #include "minitalk.h"
 
 void	ft_send_message(int target, char *message)
 {
 	int	i;
 
-	i = 8;
+	i = sizeof(char) * 8;
 	while (*message)
 	{
 		while (i--)
