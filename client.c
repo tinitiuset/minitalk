@@ -6,19 +6,36 @@
 /*   By: mvalient <mvalient@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 22:52:56 by mvalient          #+#    #+#             */
-/*   Updated: 2022/11/23 23:12:08 by mvalient         ###   ########.fr       */
+/*   Updated: 2022/11/24 10:20:22 by mvalient         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
+void	ft_send_message(char *message)
+{
+	int	i;
+
+	i = 8;
+	while (*message)
+	{
+		while (i--)
+		{
+			if ((*message >> i) & 1)
+				ft_printf("1");
+			else
+				ft_printf("0");
+		}
+		i = 8;
+		message++;
+	}
+}
+
 int	main(int argc, char **argv)
 {
-	int	target_pid;
-
 	if (argc == 3)
 	{
-		target_pid = ft_atoi(argv[1]);
+		ft_send_message(argv[2]);
 	}
 	else
 		ft_printf("Error: You should input PID and MESSAGE as parameters");
