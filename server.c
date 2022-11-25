@@ -6,7 +6,7 @@
 /*   By: mvalient <mvalient@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 22:48:42 by mvalient          #+#    #+#             */
-/*   Updated: 2022/11/25 12:41:43 by mvalient         ###   ########.fr       */
+/*   Updated: 2022/11/25 14:12:04 by mvalient         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 static void	ft_handle(int signum)
 {
-	static int	i = sizeof(char) * 8;
-	static char	j;
+	static unsigned int		i = sizeof(char) * 8;
+	static unsigned char	j;
 
 	i--;
 	if (signum == 12)
@@ -23,16 +23,19 @@ static void	ft_handle(int signum)
 	if (!i)
 	{
 		write(1, &j, 1);
-		i = 8;
+		i = sizeof(char) * 8;
 		j = 0;
 	}
 }
 
 int	main(void)
 {
+	struct sigaction	sa;
+
 	ft_printf("PID: %d\n", getpid());
-	signal(TRUE, ft_handle);
-	signal(FALSE, ft_handle);
+	sa.sa_handler = ft_handle;
+	sigaction(TRUE, &sa, NULL);
+	sigaction(FALSE, &sa, NULL);
 	while (1)
 		pause();
 	return (0);
