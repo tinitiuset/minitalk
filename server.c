@@ -6,7 +6,7 @@
 /*   By: mvalient <mvalient@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 22:48:42 by mvalient          #+#    #+#             */
-/*   Updated: 2022/11/25 14:12:04 by mvalient         ###   ########.fr       */
+/*   Updated: 2022/11/25 20:47:03 by mvalient         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ int	main(void)
 	struct sigaction	sa;
 
 	ft_printf("PID: %d\n", getpid());
+	sa.sa_flags = SA_SIGINFO;
 	sa.sa_handler = ft_handle;
 	sigaction(TRUE, &sa, NULL);
 	sigaction(FALSE, &sa, NULL);
