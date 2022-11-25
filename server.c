@@ -6,7 +6,7 @@
 /*   By: mvalient <mvalient@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 22:48:42 by mvalient          #+#    #+#             */
-/*   Updated: 2022/11/24 12:15:54 by mvalient         ###   ########.fr       */
+/*   Updated: 2022/11/25 12:41:43 by mvalient         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,17 @@
 
 static void	ft_handle(int signum)
 {
-	static int	i;
+	static int	i = sizeof(char) * 8;
+	static char	j;
 
-	if (signum == 10)
+	i--;
+	if (signum == 12)
+		j += 1 << i;
+	if (!i)
 	{
-		ft_printf("0");
-		i++;
-	}
-	else if (signum == 12)
-	{
-		ft_printf("1");
-		i++;
-	}
-	if (i == 8)
-	{
-		ft_printf("\n");
-		i = 0;
+		write(1, &j, 1);
+		i = 8;
+		j = 0;
 	}
 }
 
