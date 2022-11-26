@@ -6,7 +6,7 @@
 /*   By: mvalient <mvalient@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 22:52:56 by mvalient          #+#    #+#             */
-/*   Updated: 2022/11/26 23:08:15 by mvalient         ###   ########.fr       */
+/*   Updated: 2022/11/26 23:46:21 by mvalient         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,17 @@ static void	ft_send_message(int target, char *message)
 	}
 }
 
+static int	ft_is_numeric(char *str)
+{
+	while (*str)
+	{
+		if (!ft_isdigit(*str))
+			return (0);
+		str++;
+	}
+	return (1);
+}
+
 int	main(int argc, char **argv)
 {
 	struct sigaction	sa;
@@ -48,9 +59,9 @@ int	main(int argc, char **argv)
 	sa.sa_sigaction = ft_handle;
 	if (sigaction(TRUE, &sa, NULL) == -1)
 		write(1, "Error\n", 6);
-	if (argc == 3)
+	if (argc == 3 && ft_is_numeric(argv[1]))
 		ft_send_message(ft_atoi(argv[1]), argv[2]);
 	else
-		ft_printf("Error: You should input PID and MESSAGE as parameters");
+		ft_printf("Error: You should input PID and MESSAGE as parameters\n");
 	return (0);
 }
