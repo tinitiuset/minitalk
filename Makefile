@@ -1,15 +1,33 @@
+define HEADER
+
+          @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  @@@@@@@@
+         @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  @@@@@@@@
+        @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  @@@@@@@@
+                  @@@@@@@@                                   @@@@@@@@
+                 @@@@@@@@  @@@@@@@@  @@@@@@@@      @@@@@@@  @@@@@@@@
+                @@@@@@@@  @@@@@@@@  @@@@@@@@@@    @@@@@@@  @@@@@@@@
+               @@@@@@@@  @@@@@@@@  @@@@@@@@@@@@  @@@@@@@  @@@@@@@@
+              @@@@@@@@  @@@@@@@@  @@@@@@@@@@@@@@@@@@@@@  @@@@@@@@
+             @@@@@@@@  @@@@@@@@  @@@@@@@   @@@@@@@@@@@  @@@@@@@@
+            @@@@@@@@  @@@@@@@@  @@@@@@@     @@@@@@@@@  @@@@@@@@
+           @@@@@@@@  @@@@@@@@  @@@@@@@       @@@@@@@  @@@@@@@@
+
+endef
+export HEADER
+
 CC = cc
 CFLAGS 	= -Wall -Werror -Wextra
 
 all : client server
-
+	@echo "$$HEADER"
+	@echo "Minitalk Compiled"
 server:
-	$(MAKE) -C ./libft_extra
-	$(CC) $(CFLAGS) server.c libft_extra/libft_extra.a -o server
+	@$(MAKE) -C ./libft_extra
+	@$(CC) $(CFLAGS) server.c libft_extra/libft_extra.a -o server
 
 client:
-	$(MAKE) -C ./libft_extra
-	$(CC) $(CFLAGS) client.c libft_extra/libft_extra.a -o client
+	@$(MAKE) -C ./libft_extra
+	@$(CC) $(CFLAGS) client.c libft_extra/libft_extra.a -o client
 
 clean:
 	$(MAKE) -C ./libft_extra clean
