@@ -15,6 +15,8 @@ define HEADER
 endef
 export HEADER
 
+.SILENT:
+
 CLIENT = client
 SERVER = server
 
@@ -30,24 +32,24 @@ SERVER_OBJ = $(SERVER_C:.c=.o)
 all: $(CLIENT) $(SERVER)
 
 $(CLIENT): $(CLIENT_OBJ)
-	@$(MAKE) -C ./libft_extra
-	@$(CC) $(CFLAGS) $(CLIENT_OBJ) libft_extra/libft_extra.a -o $(CLIENT)
-	@echo "$$HEADER"
-	@echo "Client Compiled"
+	$(MAKE) -C ./libft_extra
+	$(CC) $(CFLAGS) $(CLIENT_OBJ) libft_extra/libft_extra.a -o $(CLIENT)
+	echo "$$HEADER"
+	echo "Client Compiled"
 
 $(SERVER): $(SERVER_OBJ)
-	@$(CC) $(CFLAGS) $(SERVER_OBJ) libft_extra/libft_extra.a -o $(SERVER)
-	@echo "Server Compiled"
+	$(CC) $(CFLAGS) $(SERVER_OBJ) libft_extra/libft_extra.a -o $(SERVER)
+	echo "Server Compiled"
 
 clean:
 	$(MAKE) -C ./libft_extra clean
-	@rm -f $(CLIENT_OBJ) $(SERVER_OBJ)
-	@echo "All .o files removed"
+	rm -f $(CLIENT_OBJ) $(SERVER_OBJ)
+	echo "All Minitalk .o files removed"
 
 fclean: clean
 	$(MAKE) -C ./libft_extra fclean
-	@rm -f $(CLIENT) $(SERVER)
-	@echo "Bye Bye"
+	rm -f $(CLIENT) $(SERVER)
+	echo "Bye Bye"
 
 re: fclean all
 
