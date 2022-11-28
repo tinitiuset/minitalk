@@ -20,7 +20,7 @@ static void	ft_handle(int signum, siginfo_t *info, void *context)
 	(void)context;
 	i--;
 	if (signum == TRUE)
-		j += 1 << i;
+		j |= 1 << i;
 	if (!i)
 	{
 		write(1, &j, 1);
