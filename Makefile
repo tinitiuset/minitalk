@@ -15,7 +15,7 @@ define HEADER
 endef
 export HEADER
 
-CC = cc
+CC = gcc
 CFLAGS 	= -Wall -Werror -Wextra
 
 all : client server
@@ -34,7 +34,7 @@ clean:
 
 fclean:
 	$(MAKE) -C ./libft_extra fclean
-	rm client server
+	rm -f client server
 
 re: fclean all
 
