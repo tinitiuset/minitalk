@@ -6,7 +6,7 @@
 /*   By: mvalient <mvalient@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 22:52:56 by mvalient          #+#    #+#             */
-/*   Updated: 2022/11/26 23:46:21 by mvalient         ###   ########.fr       */
+/*   Updated: 2022/11/28 20:14:03 by mvalient         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ static void	ft_send_message(int target, char *message)
 			else
 				kill(target, FALSE);
 			usleep(100);
+			usleep(50);
 		}
 		i = 8;
 		message++;
