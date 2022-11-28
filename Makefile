@@ -44,7 +44,7 @@ clean:
 	@rm -f $(CLIENT_OBJ) $(SERVER_OBJ)
 	@echo "All .o files removed"
 
-fclean:
+fclean: clean
 	$(MAKE) -C ./libft_extra fclean
 	@rm -f $(CLIENT) $(SERVER)
 	@echo "Bye Bye"
